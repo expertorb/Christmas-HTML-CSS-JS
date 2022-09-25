@@ -1,0 +1,725 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/*=============== VARIABLE CSS ===============*/
+:root{
+    --header-height: 3.5rem;
+    /*=============== Colors ===============*/
+    --first-color: hsl(355.1, 79%, 57.1%);
+    --first-color-alt: #D42B39;
+    --title-color: #282525;
+    --text-color: #5D5656;
+    --text-color-light: #918888;
+    --body-color: #fff;
+    --container-color: #fff;
+    
+    /*========== Fonts and Typography =========*/
+    --body-font: 'Poppins', sans-serif;
+    --biggest-font-size: 1.5rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+    
+    /*========== Fonts Weight =========*/
+    --font-medium: 500;
+    --font-semi-bold: 600;
+    
+    /*==========Margenes Bottom ========*/
+    --mb-0-25: .25rem;
+    --mb-0-5: .5rem;
+    --mb-0-1: 1rem;
+    --mb-1-5: 1.5rem;
+    --mb-2: 2rem;
+    --mb-2-5: 2.5rem;
+
+    /*========== Z index ========*/
+    --z-tooltrip: 10;
+    --z-fixed: 100;
+}
+ /*========== Responsive typography ========*/
+@media screen and (min-width: 968px) {
+    :root {
+        --biggest-font-size: 2.5rem;
+        --h1-font-size: 2.25rem;
+        --h2-font-size: 1.5rem;
+        --h3-font-size: 1.25rem;
+        --normal-font-size: 1rem;
+        --small-font-size: .875rem;
+        --smaller-font-size: .831rem;
+    }
+}
+
+/*============= BASE ==========*/
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+html{
+    scroll-behavior: smooth;
+}
+body,
+button,
+input {
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size); 
+}
+
+body {
+    margin: var(--header-height) 0 0 0;
+    background-color: var(--body-color);
+    color: var(--text-color);
+    transition: .4s /*for animation dark mode*/
+}
+
+h1, h2, h3, h4{
+    font-weight: var(--font-semi-bold);
+}
+
+ul{
+list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+button{
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+/*============= Reuseable CSS ==========*/
+.container{
+    max-width: 960px;
+    margin-left: var(--mb-1-5);
+    margin-right: var(--mb-1-5);
+
+}
+.grid{
+    display: grid;
+}
+.section{
+    padding: 4rem 0 1rem;
+}
+/*============= HEADER CSS ==========*/
+.header{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--body-color);
+    z-index: var(--z-fixed);
+    transition: .4s;
+}
+/*============= NAV CSS ==========*/
+.nav{
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo,
+.nav_close,
+.nav_toggle{
+    color: var(--title-color);
+}
+.logo{
+    display: flex;
+    align-items: center;
+}
+.logo_img{
+    width: 1.5rem;
+}
+.nav_btns{
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+}
+.change_thmem{
+    color: var(--title-color)
+    font-size: 1.25rem;
+    cursor: pointer;
+}
+.nav_toggle{
+    font-size: 1.25rem;
+    cursor: pointer;
+    display: inline-flex;
+}
+@media screen and (max-width: 767px){
+    .nav_menu{
+        position: fixed;
+        top: -100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--body-color);
+        padding: 4rem 0;
+        border-radius: 0 0 1.5rem 1.5rem;
+        box-shadow: 0 1px 4px hsla(0, 4%, 15%, .2);
+        transition: .4s;    
+    }
+}
+.nav_list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 2rem;
+
+}
+.nav_link{
+    color: var(--title-color);
+    font-weight: var(--font-medium);
+    transition: .3s;
+}
+.nav_link:hover{
+    color: var(--first-color);
+}
+.nav_img{
+    width: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(-15deg);
+}
+.nav_close{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.9rem;
+    font-weight: var(--font-semi-bold);
+    cursor: pointer;
+    display: inline-flex;
+
+}
+
+/*SHOW MENU*/
+.show-menu{
+    top: 0;
+}
+.main{
+    overflow: hidden;
+}
+.home_container{
+    padding-top: 1.5rem;
+    row-gap: 2rem;
+}
+.home_img{
+    width: 320px;
+    justify-self: center;
+}
+.home_data{
+    text-align: center;
+}
+.home_title{
+    font-size: var(--biggest-font-size);
+    line-height: 140%;
+    margin-bottom: var(--mb-0-5);
+}
+.home_description{
+    font-size: var(--small-font-size);
+    padding: 0 2rem;
+    margin-bottom: var(--mb-2-5);
+}
+.button{
+    background-color: var(--first-color);
+    padding: 1.15rem 2.75rem;
+    color: #fff;
+    font-weight: var(--font-medium);
+    display: inline-block;
+    border-radius: 3rem;
+    transition: .3s;
+}
+.button:hover{
+    background-color: var(--first-color-alt);
+}
+
+.giving_title{
+    text-align: center;
+    font-size: var(--h2-font-size);
+    margin-bottom: var(--mb-2-5);
+}
+.giving_container{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem 1.5rem;
+}
+.giving_item{
+    text-align: center;
+}
+.giv_img{
+    width: 100px;
+}
+.item_title{
+    font-size: var(--h3-font-size);
+    margin-bottom: var(--mb-0-5);
+}
+.item_info{
+    font-size: var(--small-font-size);
+}
+.celebrate_container{
+    grid-row-gap: 6rem;
+}
+.celebrate_data{
+    text-align: center;
+}
+.cele_title{
+    font-size: var(--h2-font-size);
+    margin-bottom: var(--mb-1-5);
+}
+.cele_info{
+    margin-bottom: var(--mb-2-5);
+}
+
+.cele_img{
+    width: 250px;
+    justify-self: center;
+
+}
+
+.gif_title{
+    font-size: var(--h2-font-size);
+    text-align: center;
+    margin-bottom: var(--mb-2-5);
+}
+.gift_container{
+    grid-template-columns: repeat(2,1fr);
+    gap: 1.5rem;
+}
+.gift_item{
+    display: grid;
+    position: relative;
+    padding: 1.5rem 1rem 1rem 1rem;
+    border-radius: .75rem;
+    box-shadow: 0 1px 4px hsla(0, 4%, 15%, .2);
+}
+.gift_img{
+    width: 100px;
+    transition: .3s;
+    justify-self: center;
+}
+.gift_icon{
+    color: var(--first-color-alt);
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 1.2rem;
+}
+.gift_price{
+    font-weight: var(--font-semi-bold);
+}
+.gifr_info{
+    font-size: var(--smaller-font-size);
+    color: var(--text-color-light);
+}
+.new_container{
+    margin-top: 5rem;
+}
+.new_card{
+    position: relative;
+    background-color: var(--container-color);
+    box-shadow:  0 4px 16px hsla(355, 25%, 15%, .1);
+    padding: 1rem 1rem 1.5rem;
+    border-radius: .75rem;
+    text-align: center;
+    width: 230px;
+    overflow: hidden;
+    margin-bottom: 4rem;
+
+
+}
+.new_overlay{
+   width: 250px;
+   height:250px;
+   background-color: var(--first-color-alt);
+   border-radius: 50%;
+   position: absolute;
+   left: -.65rem;
+   top: -5rem;
+   z-index: 0;
+}
+.new_price{
+
+}
+.new_img{
+    width: 150px;
+    margin-bottom: var(--mb-2);
+    transition: .3s;
+    position: relative;
+}
+.new_img:hover{
+    transform: translateY(-.5rem);
+}
+.new_icon{
+    color: var(--body-color);
+    font-size: 1.4rem;
+    font-weight: var(--font-medium);
+
+}
+.new_button{
+    display: inline-block;
+    background-color: var(--first-color-alt);
+    padding: .5rem;
+    border-radius: .25rem .25rem .75rem .25rem;
+    position: absolute;
+    right: 0;
+    bottom:0;
+    transition: .3s;
+    cursor: pointer;
+    
+}
+.new_button:hover{
+    background-color: var(--first-color);
+}
+
+
+.swiper-pagination-bullet{
+    background-color: var(--text-color);
+}
+.swiper-pagination-bullet-active{
+    background-color: var(--first-color);
+}
+
+/*MASSAGE-AREA*/
+.masssage_container{
+    row-gap: 3rem;
+    background-color: var(--first-color);
+    padding: 2.5rem 1.5rem;
+    border-radius: 1.25rem;
+}
+.massaage_form{
+    text-align: center;
+}
+.massage_title{
+    color: #fff;
+    margin-bottom: 1.5rem;
+}
+.massage_input{
+    width: 100%;
+    background: #fff;
+    color: var(--text-color);
+    padding: 1rem 1.5rem;
+    border-radius: 3rem;
+    border: none;
+    outline: none;
+    margin-bottom: 1rem;
+}
+.massage_button{
+    background-color: var(--title-color);
+    width: 100%;
+}
+.massage_button:hover{
+    background-color: var(--title-color);
+}
+.massage_img{
+    width: 200px;
+    justify-self: center;
+    transform: rotate(15deg);
+}
+/*=============== FOOTER ===============*/
+.footer{
+    overflow: hidden;
+}
+.footer_container{
+    position: relative;
+    row-gap: 2rem;
+}
+.footer_logo{
+    display: flex;
+    align-items: center;
+    column-gap: .25rem;
+    color: var(--title-color);
+    font-weight: var(--font-medium);
+}
+.footer_img{
+    width: 1.5rem;
+}
+.footer_info{
+    font-size: var(--small-font-size);
+}
+.footer_logo,
+.footer_title{
+    margin-bottom: 1rem;
+}
+.footer_title{
+    font-size: var(--h3-font-size);
+}
+.footer_link,
+.footer_avail{
+    display: flex;
+    flex-direction: column;
+    row-gap: .75rem;
+}
+.footer_link{
+    color: var(--text-color);
+    transition: .3s;
+}
+.footer_link:hover{
+    color: var(--title-color);
+}
+.Avail_img_1{
+    width: 100px;
+    cursor: pointer;
+}
+.footer_copy{
+    text-align: center;
+    display: block;
+    font-size: var(--small-font-size);
+    color: var(--text-color-light);
+    margin: 3.5rem 0 1rem 0;
+}
+.footer_img_1,
+.footer_img_2{
+    width: 100px;
+    position: absolute;
+}
+.footer_img_1{
+    right: 2rem;
+    top: 25%;
+}
+.footer_img_2{
+    top: 75%;
+    right: -4rem;
+}
+/*Scroll-UP*/
+.scrollup{
+    background-color: var(--container-color);
+    box-shadow: 0 4px 12px hsla(0, 0%, 20%, .1);
+    border-radius: .25rem;
+    padding: .35rem;
+    display: inline-block;
+    position: fixed;
+    right: 1rem;
+    bottom: -30%;
+    transition: .4s;
+    opacity: .8;
+    z-index: var(--z-tooltrip);
+}
+.scrollup:hover{
+    opacity: 1;
+}
+.scrollup__icon{
+    font-size: 1.25rem;
+    color: var(--first-color);
+}
+.show-scroll{
+    bottom: 3rem;
+}
+/*=============== SCROLL BAR ===============*/
+::-webkit-scrollbar {
+  width: .6rem;
+  background: hsl(355, 8%, 44%);
+  border-radius: 1rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(355, 32%, 17%);
+  border-radius: 1rem;
+}
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+@media screen and (max-width: 320px){
+    .container{
+        margin-left: var(--mb-0-1);
+        margin-right: var(--mb-0-1);
+    }
+    .home_img{
+        width: 250px;
+    }
+    .giving_container{
+        gap: 1rem;
+    }
+    .gift_container{
+        grid-template-columns: 150px;
+        justify-content: center;
+    }
+}
+/*For medium Devices*/
+@media screen and (min-width: 576px) {
+    .home_description{
+        padding: 0 8rem;
+    }
+    .giving_container{
+        grid-template-columns: repeat(2,142px);
+        justify-content: center;
+        gap: 2.5rem 3.5rem;
+    }
+    .cele_info{
+        padding: 0 4rem;
+    }
+    .gift_container{
+        grid-template-columns: repeat(2,180px);
+        justify-content: center;
+        gap: 2rem;
+    }
+    .massage_input,
+    .massage_button{
+        width: 60%;
+    }
+    .footer_container{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+@media screen and (min-width: 767px) {
+    body{
+        margin: 0;
+    }
+
+    .section{
+        padding: 6.5rem 0 2rem;
+    }
+    .nav{
+        height: 4rem;
+        column-gap: 3rem;
+    }
+    .nav_img,
+    .nav_close,
+    .nav_btns,
+    .nav_toggle{
+        display: none;
+    }
+    .nav_menu{
+        margin-left: auto;
+    }
+    .nav_list{
+        flex-direction: row;
+        column-gap: 3rem;
+    }
+    .home_container,
+    .celebrate_container,
+    .masssage_container{
+        grid-template-columns: repeat(2,1fr);
+        align-content: center;
+    }
+    .home_container{
+        padding-top: 8rem;
+    }
+    .home_data{
+        text-align: initial;
+        padding-left: 2rem;
+        padding-top: 3rem;
+    }
+    .home_description{
+        padding: 0;
+    }
+    .giving_container{
+        grid-template-columns: repeat(3,142px);
+        column-gap: 5rem;
+    }
+    .celebrate_data,
+    .cele_title{
+        text-align: initial;
+        margin-top: 3rem;
+    }
+    .cele_info{
+        padding: 0;
+    }
+    .gift_container{
+        grid-template-columns: repeat(3, 200px);
+        gap: 2.5rem;
+    }
+    .footer_container{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media screen and (min-width: 992px) {
+    .container{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .home_container{
+        column-gap: 1rem;
+    }
+    .home_img{
+        width: 500px;
+    }
+    .home_description{
+        padding-right: 8rem;
+    }
+    .giving_container{
+        column-gap: 8rem;
+        padding-top: 2rem;
+    }
+    .giv_img{
+        width: 120px;
+    }
+    .cele_img{
+        width: 450px;
+    }
+    .cele_info{
+        padding-right: 7rem;
+    }
+    .gift_container{
+        padding-top: 2rem;
+    }
+    .gift_item{
+        padding: 2rem 1.5rem 1.5rem;
+    }
+    .gift_img{
+        margin-bottom: 1rem;
+        width: 120px;
+    }
+    .gifr_info{
+
+        font-size: var(--small-font-size);
+    }
+    .new_container{
+        padding-top: 2rem;
+    }
+    .new_card{
+        margin-bottom: 5rem;
+    }
+    .new_price{
+        font-size: var(--h3-font-size);
+    }
+    .masssage_container{
+        padding: 3.5rem 0;
+        grid-template-columns: repeat(2, max-content);
+        justify-content: center;
+        column-gap: 4rem;
+    }
+    .massaage_form{
+        text-align: initial;
+    }
+    .massage_title{
+        font-size: var(--h1-font-size);
+    }
+    .massage_input{
+        width: 280px;
+        display: block;
+    }
+    .massage_button{
+        width: initial;
+    }
+    .massage_img{
+        width: 320px;
+    }
+    .footer_container{
+        grid-template-columns: repeat(4, max-content);
+        justify-content: space-between;
+    }
+    .footer_copy{
+        margin-top: 7rem;
+    }
+    .footer_img_1,
+    .footer_img_2{
+        width: 120px;
+    }
+    .footer_img_1{
+        top: 100%;
+        left: 0;
+    }
+    .footer_img_2{
+        top: 40%;
+        right: -6rem;
+    }
+    .scrollup{
+        right: 3rem;
+    }
+}
